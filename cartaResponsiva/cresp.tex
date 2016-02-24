@@ -1,0 +1,60 @@
+%
+% brownletter_example.tex - an example latex file to illustrate brownletter.cls
+%
+% Copyright 2003, Nesime Tatbul (tatbul@cs.brown.edu)
+%
+
+\documentclass[11pt]{brownletter}
+\usepackage{multicol}\usepackage[left=3cm,right=2cm,top=5cm,bottom=2cm]{geometry}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage[absolute]{textpos}
+ \usepackage{draftwatermark}
+ \SetWatermarkText{Sustituir por carta escaneada}
+ \SetWatermarkScale{2}
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\name{} % used as signature, if no signature is specified
+
+\signature{ }
+
+\date{México, D.F. a 8 de Enero de 2016\\} % if no date specified, today's date is used 
+
+\subject{Carta Responsiva} % optional subject line
+
+\begin{document}
+
+\begin{letter}{\normalsize{\textbf{ Dr. Flavio Arturo Sánchez Garfias\\
+		PRESIDENTE DE LA COMISIÓN ACADÉMICA \\ DE TRABAJO TERMINAL\\
+		P R E S E N T E}}}
+
+\opening{ }
+\begin{textblock}{8}(3.8,1.3)
+\begin{center}
+	ESCUELA SUPERIOR DE CÓMPUTO \\
+SUBDIRECCIÓN ACADÉMICA \\
+DEPARTAMENTO DE FORMACIÓN INTEGRAL E
+INSTITUCIONAL\\
+COMISIÓN ACADÉMICA DE TRABAJO TERMINAL
+\end{center}
+\end{textblock}
+ \vspace*{1cm}
+
+Por medio del presente, se informa que el alumno que integra el TRABAJO
+TERMINAL 20XX - YYYY titulado “NOMBRE DEL SISTEMA” concluyó satisfactoriamente su trabajo. \\\\
+Los discos (DVDs) fueron revisados ampliamente por sus servidores y corregidos, cubriendo el alcance y el objetivo planteados en el protocolo original y de acuerdo a los requisitos establecidos por la Comisión que Usted preside.
+\vspace*{1.5cm}
+\closing{\textbf{Atentamente}}
+\vspace*{4.5cm}
+\begin{center}
+		\begin{multicols}{2}
+		\line(1,0){180}\\		
+		\textsc{Doctor Profesor 1} \columnbreak \vfill
+		\line(1,0){180}\\
+	\textsc{Doctor Profesor 2} \\
+	\end{multicols}
+\end{center}
+ 
+\end{letter}
+
+\end{document}

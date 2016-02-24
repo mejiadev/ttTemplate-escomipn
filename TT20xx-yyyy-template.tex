@@ -1,0 +1,193 @@
+\documentclass[letterpaper,12pt,oneside]{report}
+ 
+
+\usepackage[activate={true,nocompatibility},final,tracking=true,kerning=true,spacing=true,factor=1100,stretch=10,shrink=10]{microtype}
+\usepackage[left=3cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage{adjustbox}
+\usepackage{epigraph}
+\usepackage{sectsty}
+ \usepackage{marvosym}
+ \usepackage{pgfplots}
+ \usepackage{minted}
+ \usetikzlibrary{positioning,calc}
+ \newcommand{\heart}{\ensuremath\heartsuit}
+ \definecolor{chin}{RGB}{25,44,109}
+\ifx\du\undefined
+\newlength{\du}
+\fi
+\setlength{\du}{15\unitlength}
+\usepackage[hidelinks]{hyperref}
+\usepackage[spanish, es-tabla]{babel}
+\usepackage[T1]{fontenc}\usepackage[utf8]{inputenc}
+\usepackage{chngcntr}
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{appendix}
+\usepackage{multicol}
+\usepackage{enumitem}
+
+\newcommand*\mycirc[1]{%
+	\begin{tikzpicture}[baseline=(C.base)]
+	\node[draw,circle,inner sep=1pt,minimum size=3ex,fill=escom,escom](C) {\color{white}#1};
+	\end{tikzpicture}}
+\usepackage{tikz}
+\usepackage{kpfonts}
+\usepackage[explicit]{titlesec}
+\usepackage[titles]{tocloft}
+ 
+ 
+
+\newlength\mylength
+\renewcommand\cftchappresnum{\chaptername~}
+\renewcommand\cftchapaftersnum{:}
+\settowidth\mylength{\cftchappresnum\cftchapaftersnum\quad}
+\addtolength\cftchapnumwidth{\mylength}
+ \newcommand{\listequationsname}{Lista de Ecuaciones}
+ \newlistof{myequations}{equ}{\listequationsname}
+ \newcommand{\myequations}[1]{%
+ 	\addcontentsline{equ}{myequations}{\protect\numberline{\theequation}#1}\par}
+
+\newcommand*\chapterlabel{}
+\titleformat{\chapter}
+{\gdef\chapterlabel{}
+	\normalfont\sffamily\large\bfseries\scshape}
+{\gdef\chapterlabel{\thechapter\ }}{0pt}
+{\begin{tikzpicture}[remember picture,overlay]	
+	\node[yshift=-2cm] at (current page.north west)
+	{\begin{tikzpicture}[remember picture, overlay]
+		\draw[fill=escom,escom] (0,0) rectangle
+		(\paperwidth,2cm);
+		\node[anchor=east,xshift=.9\paperwidth,rectangle,
+		rounded corners=20pt,inner sep=11pt,
+		fill=escom]
+		{\color{white}\chapterlabel#1};
+		\node[inner sep=0pt] at (2,0)
+		{\includegraphics[width=.1\textwidth]{example-image}};
+		\end{tikzpicture}
+	};
+\end{tikzpicture}
+}
+\titlespacing*{\chapter}{0pt}{50pt}{-60pt}
+
+\usepackage{float} 
+ 
+    \usepackage{subcaption}
+   \usepackage{caption}
+
+   \newcommand{\repeatcaption}[2]{%
+   	\renewcommand{\thefigure}{\ref{#1}}%
+   	\captionsetup{list=no}%
+   	\caption{#2 (repeated from page \pageref{#1})}%
+   } 
+   \newcommand*\Laplace{\mathop{}\!\mathbin\bigtriangleup}
+   \newcommand*\DAlambert{\mathop{}\!\mathbin\Box}
+\usepackage{wrapfig} 
+\usepackage{csquotes}
+\usepackage[backend=bibtex]{biblatex}
+\bibliography{./bib/Pattern_Recognition.bib}
+\bibliography{./bib/Biometrics.bib}
+\bibliography{./bib/pedroTome.bib}
+\bibliography{./bib/iswSommerville.bib}
+\bibliography{./bib/Forensic_Science.bib}
+\bibliography{./bib/Handbook_of_Forensic_Science.bib}
+\bibliography{./bib/Ingenieria_del_software.bib}
+\bibliography{./bib/python}
+\bibliography{./bib/ferretObligated1}
+\bibliography{./bib/gitzadinovaYulia}
+\bibliography{./bib/semefo}
+\bibliography{./bib/uam}
+\bibliography{./bib/new/ageclassificationfromfacialimages.bib}
+\bibliography{./bib/alfredHaar}
+\bibliography{./bib/lopezPoveda.bib}\bibliography{./bib/forense.bib}
+\bibliography{./bib/matlabRP.bib}
+\bibliography{./bib/A_Probabilistic_Theory_of_Pattern_Recogn.bib}
+\bibliography{./bib/techForens.bib}
+\bibliography{./bib/hjelmaas2001face.bib}
+\bibliography{./bib/numPy.bib}
+\bibliography{./bib/pythonrecfac.bib}
+\bibliography{./bib/The_Human_Face.bib}
+\bibliography{./bib/benchmarking.bib}
+\bibliography{./bib/Visual_Studio_2010.bib}
+\bibliography{./bib/violajones.bib}
+\bibliography{./bib/lanitis.bib}
+\usepackage[spanish]{translator}
+ \usepackage{booktabs}\usepackage{minitoc}
+ \usepackage[final]{pdfpages}
+ 
+\include{thesis.preamble}
+
+\makenoidxglossaries
+\input{glosario/glosario}
+\hypersetup{
+	pdftoolbar=true,        % show Acrobat’s toolbar?
+	pdfmenubar=true,        % show Acrobat’s menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdftitle={\ttno},    % title
+	pdfauthor={\me},     % author
+	pdfsubject={TT 20xx-YYYY},   % subject of the document
+	pdfcreator={\me},   % creator of the document
+	pdfproducer={XELATEX}, % producer of the document
+	pdfkeywords={análisis de imagenes} {análisis de rasgos faciales} {ciencias forenses} {reconocimiento de patrones} 
+}
+\begin{document}
+
+\title{\Large {\bf \ttt \\ \ttno}\\
+ \vspace*{6mm}
+}
+
+\author{\me}
+\submitdate{Noviembre, 2015}
+
+\normallinespacing
+\titleCover
+\maketitle
+ 
+
+
+\preface
+ 
+
+\includepdf[pages=-]{cartaResponsiva/cresp.pdf}
+\input{advertencia/advertencia}
+\input{dedication/dedication}
+\input{acknowledgements/acknowledgements}
+\input{quotes/quotes}
+\input{abstract/abstract}
+      
+      
+      
+      
+      
+      
+
+\body
+\cleardoublepage
+ 
+
+\input{introduction/introduction}
+\input{overview/overview}
+\input{marcoTeorico/marcoTeorico}
+\input{analisis/analisis}
+\input{diseno/diseno}
+\input{selecHerramientas/selecHerramientas}
+\input{implementacion/implementacion}
+\input{implementacion/implementacion2inc}
+\input{conclusiones/conclusiones}
+ 
+ 
+ 
+
+
+
+ \listofmyequations
+\input{cbibliografia/cbibliografia}
+
+\printnoidxglossaries
+\vspace*{5cm}
+\begin{flushright}
+	\textcolor{gray}{	crafted with \heart\, using \LaTeX}
+\end{flushright}
+\end{document}
